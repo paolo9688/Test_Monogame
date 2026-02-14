@@ -9,8 +9,8 @@ namespace Test_Monogame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        // Riferimento alla nostra classe mappa
         private MapManager _mapManager;
+        private Player _player;
 
         public Game1()
         {
@@ -25,8 +25,8 @@ namespace Test_Monogame
 
         protected override void Initialize()
         {
-            // Inizializziamo l'oggetto mappa
             _mapManager = new MapManager();
+            _player = new Player(new Vector2(100, 100));
 
             base.Initialize();
         }
@@ -35,8 +35,8 @@ namespace Test_Monogame
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // Carichiamo gli asset della mappa
             _mapManager.LoadContent(Content);
+            _player.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
@@ -45,7 +45,7 @@ namespace Test_Monogame
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // Qui in futuro chiameremo _player.Update(gameTime);
+            _player.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -61,7 +61,7 @@ namespace Test_Monogame
             // Disegniamo la mappa
             _mapManager.Draw(_spriteBatch);
 
-            // Qui in futuro chiameremo _player.Draw(_spriteBatch);
+            _player.Draw(_spriteBatch);
 
             _spriteBatch.End();
 
