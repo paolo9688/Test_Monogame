@@ -1,0 +1,120 @@
+# =========================
+
+# .NET / C#
+
+# =========================
+
+bin/
+obj/
+artifacts/
+publish/
+TestResults/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / Resharper
+
+_ReSharper*/
+*.DotSettings.user
+
+# NuGet
+
+*.nupkg
+packages/
+.nuget/
+
+# Logs
+
+*.log
+
+# =========================
+
+# Visual Studio
+
+# =========================
+
+.vs/
+*.VC.db
+*.VC.opendb
+ipch/
+*.aps
+*.pch
+*.pdb
+*.cache
+*.ilk
+*.obj
+*.iobj
+*.ipdb
+
+# IIS Express
+
+/.vs/config/applicationhost.config
+
+# Profiling
+
+*.psess
+*.vsp
+*.vspx
+
+# =========================
+
+# VS Code
+
+# (manteniamo settings utili)
+
+# =========================
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# =========================
+
+# MonoGame
+
+# =========================
+
+# Compiled content
+
+Content/bin/
+Content/obj/
+
+# MGCB intermediate files
+
+*.mgcontent
+*.mgstats
+*.mgcb-editor*
+*.mgbak
+
+# Texture/audio build cache
+
+*.xnb
+
+# Pipeline temp
+
+.mgcb/
+
+# =========================
+
+# OS / Windows
+
+# =========================
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# =========================
+
+# Git
+
+# =========================
+
+.gitignore.bak
