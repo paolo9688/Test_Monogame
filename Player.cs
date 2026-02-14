@@ -6,12 +6,12 @@ using Microsoft.Xna.Framework.Input;
 public class Player
 {
     private Texture2D _spriteSheet;
-    private Vector2 _position;
-    private float _speed = 150f; // Pixel al secondo
+    public Vector2 _position;
+    private float _speed = 70f; // Pixel al secondo
 
     // Definiamo la dimensione della singola sprite
-    private int _spriteWidth = 32;
-    private int _spriteHeight = 32;
+    public int _spriteWidth = 32;
+    public int _spriteHeight = 32;
 
     public Player(Vector2 startPosition)
     {

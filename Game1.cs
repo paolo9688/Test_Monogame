@@ -9,6 +9,7 @@ namespace Test_Monogame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private Camera _camera;
         private MapManager _mapManager;
         private Player _player;
 
@@ -19,14 +20,15 @@ namespace Test_Monogame
             IsMouseVisible = true;
 
             // Impostiamo una risoluzione fissa per il test
-            _graphics.PreferredBackBufferWidth = 800;
-            _graphics.PreferredBackBufferHeight = 480;
+            _graphics.PreferredBackBufferWidth = 1024;
+            _graphics.PreferredBackBufferHeight = 768;
         }
 
         protected override void Initialize()
         {
             _mapManager = new MapManager();
             _player = new Player(new Vector2(100, 100));
+            _camera = new Camera();
 
             base.Initialize();
         }
@@ -45,6 +47,8 @@ namespace Test_Monogame
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            _camera.Follow(_player, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+
             _player.Update(gameTime);
 
             base.Update(gameTime);
@@ -55,8 +59,11 @@ namespace Test_Monogame
             // Cambiamo il colore di sfondo in un verde scuro (più adatto a un RPG)
             GraphicsDevice.Clear(new Color(34, 34, 34));
 
-            // IMPORTANTE: SamplerState.PointClamp serve per mantenere i pixel nitidi (no sfocatura)
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            // Iniziamo il batch con la matrice di trasformazione della camera
+            _spriteBatch.Begin(
+                transformMatrix: _camera.Transform, 
+                samplerState: SamplerState.PointClamp
+            );
 
             // Disegniamo la mappa
             _mapManager.Draw(_spriteBatch);
